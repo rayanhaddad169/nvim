@@ -1,6 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-local opt_test = {
+local opt = {
   integrations = {
     aerial = true,
     alpha = true,
@@ -29,7 +29,7 @@ local opt_test = {
   transparent_background = true,
 }
 
-require("catppuccin").setup(opt_test)
+require("catppuccin").setup(opt)
 vim.cmd.colorscheme("catppuccin")
 local user_config = { background_colour = "#000000" }
 require("notify").setup(user_config)
