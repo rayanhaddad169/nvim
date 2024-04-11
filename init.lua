@@ -33,3 +33,52 @@ require("catppuccin").setup(opt)
 vim.cmd.colorscheme("catppuccin")
 local user_config = { background_colour = "#000000" }
 require("notify").setup(user_config)
+require("lspconfig").pylsp.setup({
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "E731,W503,D205,D415,D209,E203" },
+          maxLineLength = 120,
+          ignore_filetype = { "__init__.py" },
+        },
+      },
+    },
+  },
+})
+
+local undotree = require("undotree")
+
+undotree.setup({
+  float_diff = true, -- using float window previews diff, set this `true` will disable layout option
+  layout = "left_bottom", -- "left_bottom", "left_left_bottom"
+  position = "left", -- "right", "bottom"
+  ignore_filetype = { "undotree", "undotreeDiff", "qf", "TelescopePrompt", "spectre_panel", "tsplayground" },
+  window = {
+    winblend = 30,
+  },
+  keymaps = {
+    ["j"] = "move_next",
+    ["k"] = "move_prev",
+    ["gj"] = "move2parent",
+    ["J"] = "move_change_next",
+    ["K"] = "move_change_prev",
+    ["<cr>"] = "action_enter",
+    ["p"] = "enter_diffbuf",
+    ["q"] = "quit",
+  },
+})
+vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true })
+local opts = {
+  filesystem = {
+    filtered_items = {
+      visible = false,
+      always_show = { -- remains visible even if other settings would normally hide it
+        ".zshrc",
+      },
+      show_hidden_count = true,
+      hide_dotfiles = true,
+    },
+  },
+}
+require("neo-tree").setup(opts)
