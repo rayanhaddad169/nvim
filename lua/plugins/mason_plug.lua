@@ -31,7 +31,12 @@ return {
         "black", -- python formatter
         "pylint", -- python linter
         "docformatter",
+        "dockerls",
+        "docker_compose_language_service",
+        "yamlls",
+        "pylsp",
       },
+      automatic_installation = { exclude = "black" },
     })
 
     masonlsp.setup({
