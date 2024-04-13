@@ -11,7 +11,7 @@ require("lspconfig").pylsp.setup({
       plugins = {
         pycodestyle = {
           ignore = { "E731,W503,D205,D415,D209,E203" },
-          maxLineLength = 120,
+          maxLineLength = 100,
           ignore_filetype = { "__init__.py" },
         },
       },
@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, s
 require("conform").setup({
   formatters = {
     black = {
-      prepend_args = { "--line-length", "120" },
+      prepend_args = { "--line-length", "100" },
     },
   },
 })
