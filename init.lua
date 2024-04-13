@@ -21,6 +21,8 @@ require("lspconfig").pylsp.setup({
 
 vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true })
 
+require("telescope").load_extension("harpoon")
+
 require("conform").setup({
   formatters = {
     black = {

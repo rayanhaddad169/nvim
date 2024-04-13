@@ -1,9 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.harpoon2",
     "lazyvim.plugins.extras.lazyrc",
-    "lazyvim.plugins.extras.util.gitui",
-    "lazyvim.plugins.extras.vscode"
+    "lazyvim.plugins.extras.util.gitui"
   ],
   "news": {
     "NEWS.md": "3314"
