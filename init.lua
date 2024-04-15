@@ -33,19 +33,6 @@ require("catppuccin").setup(opt)
 vim.cmd.colorscheme("catppuccin")
 local user_config = { background_colour = "#000000" }
 require("notify").setup(user_config)
-require("lspconfig").pylsp.setup({
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = { "E731,W503,D205,D415,D209,E203" },
-          maxLineLength = 120,
-          ignore_filetype = { "__init__.py" },
-        },
-      },
-    },
-  },
-})
 
 local undotree = require("undotree")
 
@@ -69,12 +56,14 @@ undotree.setup({
   },
 })
 vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true })
+
 local opts = {
   filesystem = {
     filtered_items = {
       visible = false,
       always_show = { -- remains visible even if other settings would normally hide it
         ".zshrc",
+        ".gitignore",
       },
       show_hidden_count = true,
       hide_dotfiles = true,
@@ -82,3 +71,20 @@ local opts = {
   },
 }
 require("neo-tree").setup(opts)
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls", "pylsp" },
+})
+
+require("lspconfig").pylsp.setup({
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "E731,W503,D205,D415,D209,E203" },
+          maxLineLength = 120,
+          ignore_filetype = { "__init__.py" },
+        },
+      },
+    },
+  },
+})
