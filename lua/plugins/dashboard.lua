@@ -63,7 +63,7 @@ return {
       opts.config.header = vim.split(logo1, "\n")
 
       opts.config.center = {
-        { action = "Telescope find_files search_dirs=./ ", desc = " Files", icon = "📁", key = "f" },
+        { action = "Telescope find_files", desc = " Files", icon = "📁", key = "f" },
         { action = "Telescope live_grep", desc = " Grep string", icon = "🔍", key = "g" },
         { action = "Telescope oldfiles", desc = " Recent files", icon = "🗄", key = "r" },
         {

@@ -28,7 +28,7 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         "isort", -- python formatter
-        { "black", version = "24.1.1" }, -- python formatter
+        { "black", version = "22.3.0" }, -- python formatter
         "pylint", -- python linter
         "docformatter",
         "dockerls",
