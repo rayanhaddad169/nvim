@@ -7,6 +7,11 @@ vim.cmd.colorscheme("catppuccin")
 
 require("lspconfig").pylsp.setup({
   settings = {
+    python = {
+      analysis = {
+        extraPaths = { "/usr/local/lib/python3.9/dist-packages" },
+      },
+    },
     pylsp = {
       plugins = {
         pycodestyle = {
