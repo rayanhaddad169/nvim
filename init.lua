@@ -9,8 +9,16 @@ require("lspconfig").pylsp.setup({
   settings = {
     pylsp = {
       plugins = {
-        extra_paths = { "/usr/local/lib/python3.9/dist-packages/" },
-        jedi = { extra_paths = { "/usr/local/lib/python3.9/dist-packages/" } },
+        extra_paths = {
+          "/usr/local/lib/python3.9/dist-packages/",
+          "/home/rayan_haddad/.local/lib/python3.9/site-packages",
+        },
+        jedi = {
+          extra_paths = {
+            "/usr/local/lib/python3.9/dist-packages/",
+            "/home/rayan_haddad/.local/lib/python3.9/site-packages",
+          },
+        },
         pycodestyle = {
           ignore = { "E731,W503,D205,D415,D209,E203" },
           maxLineLength = 100,
