@@ -28,24 +28,21 @@ return {
     mason_tool_installer.setup({
       ensure_installed = {
         "isort", -- python formatter
-        { "black", version = "22.3.0" }, -- python formatter
+        "black", -- python formatter
         "pylint", -- python linter
         "docformatter",
-        "dockerls",
-        "docker_compose_language_service",
-        "yamlls",
         "pylsp",
       },
       automatic_installation = { exclude = "black" },
     })
 
     masonlsp.setup({
-      ensure_installed = { "pylsp", "dockerls" },
+      ensure_installed = { "pylsp" },
     })
 
     formatter.setup({
       formatters_by_ft = {
-        python = { "isort", "black" },
+        python = { "isort", "black", "docformatter" },
       },
     })
 
