@@ -21,7 +21,7 @@ require("lspconfig").pylsp.setup({
         },
         pycodestyle = {
           ignore = { "E731,W503,D205,D415,D209,E203" },
-          maxLineLength = 100,
+          maxLineLength = 120,
           ignore_filetype = { "__init__.py" },
         },
       },
@@ -36,7 +36,7 @@ require("telescope").load_extension("harpoon")
 require("conform").setup({
   formatters = {
     black = {
-      prepend_args = { "--line-length", "100" },
+      prepend_args = { "--line-length", "120" },
     },
   },
 })
