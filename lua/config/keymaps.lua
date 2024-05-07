@@ -2,12 +2,15 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+vim.keymap.set("n", "wqa", ":wqa<enter>", { silent = true })
+vim.keymap.set("n", "qa", ":qa<enter>", { silent = true })
+vim.keymap.set("n", "qq", ":q<enter>", { silent = true })
 --- Harpoon ui keymap
 vim.keymap.set("n", "<leader>h", ":Telescope harpoon marks<enter>", { silent = true, desc = "Harpoon" })
 vim.keymap.set(
   "n",
   "<leader>H",
-  ":lua require('harpoon.ui').toggle_quick_menu()<enter>",
+  ":lua require('').toggle_quick_menu()<enter>",
   { silent = true, desc = "harpoon ui" }
 )
 vim.keymap.set(
