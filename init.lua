@@ -11,11 +11,13 @@ require("lspconfig").pylsp.setup({
       plugins = {
         extra_paths = {
           "/usr/local/lib/python3.9/dist-packages/",
+          "/Users/rayan/.venv/lib/python3.12/site-packages/",
           "/home/rayan_haddad/.local/lib/python3.9/site-packages",
         },
         jedi = {
           extra_paths = {
             "/usr/local/lib/python3.9/dist-packages/",
+            "/Users/rayan/.venv/lib/python3.12/site-packages/",
             "/home/rayan_haddad/.local/lib/python3.9/site-packages",
           },
         },
