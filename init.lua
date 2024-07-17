@@ -23,7 +23,7 @@ require("lspconfig").pylsp.setup({
         },
         pycodestyle = {
           ignore = { "E731,W503,D205,D415,D209,E203" },
-          maxLineLength = 120,
+          maxLineLength = 100,
           ignore_filetype = { "__init__.py" },
         },
       },
@@ -33,12 +33,37 @@ require("lspconfig").pylsp.setup({
 
 vim.keymap.set("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true })
 
-require("telescope").load_extension("harpoon")
-
 require("conform").setup({
   formatters = {
     black = {
-      prepend_args = { "--line-length", "120" },
+      prepend_args = { "--line-length", "100" },
     },
   },
 })
+
+local harpoon = require("harpoon")
+harpoon:setup({})
+
+-- basic telescope configuration
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+  local file_paths = {}
+  for _, item in ipairs(harpoon_files.items) do
+    table.insert(file_paths, item.value)
+  end
+
+  require("telescope.pickers")
+    .new({}, {
+      prompt_title = "Harpoon",
+      finder = require("telescope.finders").new_table({
+        results = file_paths,
+      }),
+      previewer = conf.file_previewer({}),
+      sorter = conf.generic_sorter({}),
+    })
+    :find()
+end
+
+vim.keymap.set("n", "<leader>h", function()
+  toggle_telescope(harpoon:list())
+end, { desc = "Open harpoon window" })
