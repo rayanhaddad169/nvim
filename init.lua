@@ -1,8 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
-require("notify").setup({ background_colour = "#000000" })
-
 vim.cmd.colorscheme("catppuccin")
 
 require("lspconfig").pylsp.setup({
@@ -53,15 +51,15 @@ local function toggle_telescope(harpoon_files)
   end
 
   require("telescope.pickers")
-      .new({}, {
-        prompt_title = "Harpoon",
-        finder = require("telescope.finders").new_table({
-          results = file_paths,
-        }),
-        previewer = conf.file_previewer({}),
-        sorter = conf.generic_sorter({}),
-      })
-      :find()
+    .new({}, {
+      prompt_title = "Harpoon",
+      finder = require("telescope.finders").new_table({
+        results = file_paths,
+      }),
+      previewer = conf.file_previewer({}),
+      sorter = conf.generic_sorter({}),
+    })
+    :find()
 end
 
 vim.keymap.set("n", "<leader>h", function()
